@@ -1,0 +1,1144 @@
+<!DOCTYPE html>
+<html lang="uz" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>7-sonli Umumiy O'rta Ta'lim Maktabi | Yuqori Chirchiq tumani, Yangibozor</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: {
+                            50: '#f0f4f8',
+                            100: '#d9e2ec',
+                            600: '#103f6e',
+                            800: '#002B49',
+                            900: '#001b30',
+                        },
+                        gold: {
+                            400: '#d4af37',
+                            500: '#C5A059',
+                            600: '#ab873c',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .hero-pattern {
+            background: linear-gradient(135deg, rgba(0, 43, 73, 0.92) 0%, rgba(16, 63, 110, 0.85) 100%),
+                        url('https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+        }
+        .seal-rotate:hover {
+            transform: rotate(5deg) scale(1.02);
+            transition: transform 0.4s ease;
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-800 bg-gray-50 flex flex-col min-h-screen">
+
+    <!-- Top Utility & Language Bar -->
+    <div class="bg-navy-900 text-gray-300 text-xs sm:text-sm py-2 px-4 border-b border-navy-800 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-2">
+            <!-- Contact Quick Details -->
+            <div class="flex flex-wrap items-center justify-center md:justify-start gap-4">
+                <a href="tel:+998998159390" class="hover:text-gold-500 transition flex items-center gap-2">
+                    <i class="fa-solid fa-phone text-gold-500"></i> +998 99 815 93 90
+                </a>
+                <span class="hidden sm:inline-flex items-center gap-2 text-gray-400">
+                    <i class="fa-solid fa-clock text-gold-500"></i> <span data-i18n="top_hours">Dush–Jum: 08:00 – 17:00</span>
+                </span>
+                <span class="hidden lg:inline-flex items-center gap-2 text-gray-400">
+                    <i class="fa-solid fa-location-dot text-gold-500"></i> <span data-i18n="top_location">Toshkent vil., Yuqorichirchiq t., Yangibozor sh.</span>
+                </span>
+            </div>
+
+            <!-- Language Switcher & Quick Admissions Portal Button -->
+            <div class="flex items-center gap-3">
+                <div class="flex items-center bg-navy-800 rounded-lg p-1 border border-navy-600 text-xs">
+                    <button onclick="setLang('uz')" id="lang-uz" class="px-2 py-0.5 rounded font-bold text-white bg-gold-500">UZ</button>
+                    <button onclick="setLang('ru')" id="lang-ru" class="px-2 py-0.5 rounded font-medium text-gray-300 hover:text-white">RU</button>
+                    <button onclick="setLang('en')" id="lang-en" class="px-2 py-0.5 rounded font-medium text-gray-300 hover:text-white">EN</button>
+                </div>
+                <a href="#qabul" class="bg-gold-500 hover:bg-gold-600 text-navy-900 font-bold px-3 py-1 rounded-lg transition text-xs flex items-center gap-1.5 shadow-sm">
+                    <i class="fa-solid fa-graduation-cap"></i> <span data-i18n="btn_qabul_top">Qabul 2026-2027</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Navigation Header -->
+    <header class="bg-white border-b border-gray-100 shadow-sm sticky top-[37px] z-40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                
+                <!-- School Emblem Logo -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="w-14 h-14 relative flex-shrink-0 seal-rotate">
+                        <!-- Custom SVG Emblem matching official Yuqori Chirchiq 7-Maktab Seal -->
+                        <svg viewBox="0 0 200 200" class="w-full h-full drop-shadow-md">
+                            <circle cx="100" cy="100" r="96" fill="#ffffff" stroke="#002B49" stroke-width="8"/>
+                            <circle cx="100" cy="100" r="88" fill="none" stroke="#C5A059" stroke-width="3"/>
+                            <path id="textPath" d="M 25 100 A 75 75 0 1 1 175 100" fill="none"/>
+                            <text font-size="11" font-weight="bold" fill="#002B49" font-family="Montserrat">
+                                <textPath href="#textPath" startOffset="50%" text-anchor="middle">YUQORI CHIRCHIQ TUMANI</textPath>
+                            </text>
+                            <!-- Building & Book SVG -->
+                            <rect x="70" y="75" width="60" height="40" fill="#002B49" rx="2"/>
+                            <polygon points="100,50 65,75 135,75" fill="#C5A059"/>
+                            <path d="M 60 135 Q 100 120 140 135 L 140 145 Q 100 130 60 145 Z" fill="#002B49"/>
+                            <circle cx="100" cy="155" r="16" fill="#002B49" stroke="#C5A059" stroke-width="2"/>
+                            <text x="100" y="160" font-size="14" font-weight="extrabold" fill="#ffffff" text-anchor="middle">7</text>
+                        </svg>
+                    </div>
+                    <div>
+                        <span class="font-heading font-extrabold text-base sm:text-lg text-navy-800 tracking-tight block uppercase leading-tight">
+                            7-SONLI MAKTAB
+                        </span>
+                        <span class="text-xs font-semibold text-gold-600 block" data-i18n="school_subhead">
+                            Yuqori Chirchiq Tumani Yangibozor
+                        </span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation Menu -->
+                <nav class="hidden lg:flex items-center gap-7 font-medium text-gray-700 text-sm">
+                    <a href="#home" class="hover:text-navy-600 transition py-2" data-i18n="nav_home">Bosh sahifa</a>
+                    <a href="#about" class="hover:text-navy-600 transition py-2" data-i18n="nav_about">Maktab haqida</a>
+                    <a href="#leadership" class="hover:text-navy-600 transition py-2" data-i18n="nav_leadership">Rahbariat</a>
+                    <a href="#qabul" class="text-gold-600 font-bold hover:text-navy-600 transition py-2 flex items-center gap-1">
+                        <i class="fa-solid fa-star text-xs"></i> <span data-i18n="nav_qabul">Qabul Portal</span>
+                    </a>
+                    <a href="#events" class="hover:text-navy-600 transition py-2" data-i18n="nav_events">Maktab Hayoti</a>
+                    <a href="#contact" class="hover:text-navy-600 transition py-2" data-i18n="nav_contact">Bog'lanish</a>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <div class="flex items-center gap-3 lg:hidden">
+                    <button id="mobileMenuBtn" class="p-2 text-navy-800 focus:outline-none">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Drawer -->
+        <div id="mobileMenu" class="hidden lg:hidden bg-white border-t border-gray-100 px-6 py-4 space-y-3">
+            <a href="#home" class="mobile-link block py-2 text-gray-700 font-medium" data-i18n="nav_home">Bosh sahifa</a>
+            <a href="#about" class="mobile-link block py-2 text-gray-700 font-medium" data-i18n="nav_about">Maktab haqida</a>
+            <a href="#leadership" class="mobile-link block py-2 text-gray-700 font-medium" data-i18n="nav_leadership">Rahbariat</a>
+            <a href="#qabul" class="mobile-link block py-2 text-gold-600 font-bold" data-i18n="nav_qabul">Qabul Portal</a>
+            <a href="#events" class="mobile-link block py-2 text-gray-700 font-medium" data-i18n="nav_events">Maktab Hayoti</a>
+            <a href="#contact" class="mobile-link block py-2 text-gray-700 font-medium" data-i18n="nav_contact">Bog'lanish</a>
+        </div>
+    </header>
+
+    <!-- Main Content Wrapper -->
+    <main class="flex-grow">
+
+        <!-- HERO SECTION -->
+        <section id="home" class="hero-pattern text-white py-20 lg:py-32 px-4 relative">
+            <div class="max-w-7xl mx-auto grid lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-8 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-xs sm:text-sm text-gold-400 font-semibold tracking-wide uppercase">
+                        <i class="fa-solid fa-award"></i> <span data-i18n="hero_badge">Sifatli Ta'lim & Tarbiya Maskani</span>
+                    </div>
+                    <h1 class="font-heading font-extrabold text-3xl sm:text-5xl lg:text-6xl leading-tight" data-i18n="hero_title">
+                        7-Sonli Umumiy O'rta Ta'lim Maktabi
+                    </h1>
+                    <p class="text-base sm:text-xl text-gray-200 max-w-2xl leading-relaxed font-light" data-i18n="hero_desc">
+                        Yuqori Chirchiq tumani, Yangibozor posyolkasida joylashgan bilim маskani. O'quvchilarning har tomonlama kamol topishi va yuksak natijalarga erishishi uchun barcha sharoitlar yaratilgan.
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4 pt-4 justify-center lg:justify-start">
+                        <a href="#qabul" class="bg-gold-500 hover:bg-gold-600 text-navy-900 font-bold px-8 py-4 rounded-xl shadow-xl transition transform hover:-translate-y-0.5 text-center flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-paper-plane"></i> <span data-i18n="hero_btn_apply">Onlayn Qabulga Ariza Topshirish</span>
+                        </a>
+                        <a href="#about" class="bg-white/10 hover:bg-white/20 border border-white/30 text-white font-semibold px-8 py-4 rounded-xl backdrop-blur-md transition text-center" data-i18n="hero_btn_more">
+                            Maktab Haqida Batafsil
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Working Hours Badge / Banner -->
+                <div class="lg:col-span-4 hidden lg:block">
+                    <div class="bg-white/95 text-navy-900 p-8 rounded-3xl shadow-2xl backdrop-blur-md border border-white/40 space-y-6">
+                        <div class="flex items-center gap-4 border-b border-gray-200 pb-4">
+                            <div class="w-12 h-12 bg-navy-800 text-gold-500 rounded-2xl flex items-center justify-center text-2xl">
+                                <i class="fa-solid fa-school"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-heading font-bold text-lg" data-i18n="badge_title">Ish Tartibi</h3>
+                                <p class="text-xs text-gray-500" data-i18n="badge_sub">Dushanba - Juma</p>
+                            </div>
+                        </div>
+
+                        <div class="space-y-3 text-sm">
+                            <div class="flex justify-between items-center py-1 border-b border-gray-100">
+                                <span class="text-gray-600" data-i18n="time_hours">Dars vaqtlari:</span>
+                                <span class="font-bold text-navy-800">08:00 – 17:00</span>
+                            </div>
+                            <div class="flex justify-between items-center py-1 border-b border-gray-100">
+                                <span class="text-gray-600" data-i18n="time_days">Ish kunlari:</span>
+                                <span class="font-bold text-navy-800" data-i18n="time_workdays">Dush – Jum</span>
+                            </div>
+                            <div class="flex justify-between items-center py-1">
+                                <span class="text-gray-600" data-i18n="time_phone">Aloqa:</span>
+                                <a href="tel:+998998159390" class="font-bold text-gold-600 hover:underline">+998 99 815 93 90</a>
+                            </div>
+                        </div>
+
+                        <div class="bg-navy-50 p-4 rounded-xl text-xs text-navy-800 border border-navy-100 flex items-start gap-3">
+                            <i class="fa-solid fa-circle-info text-gold-600 text-base mt-0.5"></i>
+                            <span data-i18n="badge_info">Yangibozor markazida joylashgan zamonaviy ta'lim muassasasi.</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- STATISTICS NUMBERS -->
+        <section class="py-12 bg-white border-b border-gray-100">
+            <div class="max-w-7xl mx-auto px-4 grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+                <div class="p-4 border-r border-gray-100 last:border-0">
+                    <div class="font-heading font-extrabold text-4xl sm:text-5xl text-navy-800 counter" data-target="1150">0</div>
+                    <div class="text-xs sm:text-sm font-semibold text-gray-500 uppercase tracking-wider mt-2" data-i18n="stat_1">O'quvchilar Soni</div>
+                </div>
+                <div class="p-4 border-r border-gray-100 last:border-0">
+                    <div class="font-heading font-extrabold text-4xl sm:text-5xl text-navy-800 counter" data-target="72">0</div>
+                    <div class="text-xs sm:text-sm font-semibold text-gray-500 uppercase tracking-wider mt-2" data-i18n="stat_2">Malakali O'qituvchilar</div>
+                </div>
+                <div class="p-4 border-r border-gray-100 last:border-0">
+                    <div class="font-heading font-extrabold text-4xl sm:text-5xl text-navy-800 counter" data-target="36">0</div>
+                    <div class="text-xs sm:text-sm font-semibold text-gray-500 uppercase tracking-wider mt-2" data-i18n="stat_3">Zamonaviy Sinfxonalar</div>
+                </div>
+                <div class="p-4">
+                    <div class="font-heading font-extrabold text-4xl sm:text-5xl text-gold-500 counter" data-target="100">0</div>
+                    <div class="text-xs sm:text-sm font-semibold text-gray-500 uppercase tracking-wider mt-2" data-i18n="stat_4">% Sifatli Ta'lim</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT SCHOOL SECTION -->
+        <section id="about" class="py-20 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid lg:grid-cols-12 gap-12 items-center">
+                    
+                    <!-- School Image Gallery Showcase -->
+                    <div class="lg:col-span-6 space-y-4">
+                        <div class="relative rounded-3xl overflow-hidden shadow-xl border-4 border-white">
+                            <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1000&q=80" alt="7-Maktab Binosi" class="w-full h-80 object-cover">
+                            <div class="absolute bottom-4 left-4 bg-navy-900/90 text-white px-4 py-2 rounded-xl text-xs font-semibold backdrop-blur-sm">
+                                <i class="fa-solid fa-camera text-gold-500 mr-2"></i> Yangibozor, 7-Sonli Maktab
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="rounded-2xl overflow-hidden shadow-md h-40">
+                                <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=600&q=80" alt="Sinfxona" class="w-full h-full object-cover">
+                            </div>
+                            <div class="rounded-2xl overflow-hidden shadow-md h-40">
+                                <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=600&q=80" alt="Sport faoliyati" class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- About Text Content -->
+                    <div class="lg:col-span-6 space-y-6">
+                        <span class="text-gold-600 font-bold tracking-widest text-xs uppercase" data-i18n="about_tag">Bizning Maktab</span>
+                        <h2 class="font-heading font-extrabold text-3xl sm:text-4xl text-navy-800 leading-tight" data-i18n="about_title">
+                            Kelajak Bunyodkorlarini Tayyorlaydigan Ziyo Maskani
+                        </h2>
+                        <p class="text-gray-600 leading-relaxed" data-i18n="about_desc1">
+                            Yuqori Chirchiq tumani 7-sonli umumiy o'rta ta'lim maktabi ko'p yillik tajribaga ega bo'lib, o'quvchilarga chuqurlashtirilgan bilim va axloqiy tarbiya berishni asosiy vazifa deb biladi.
+                        </p>
+                        <p class="text-gray-600 leading-relaxed" data-i18n="about_desc2">
+                            Maktabimizda zamonaviy kompyuter xonalari, boy kutubxona, sport zali hamda FIFA Women's Football dasturi kabi turli to'garaklar va madaniy-ma'rifiy tadbirlar muntazam o'tkaziladi.
+                        </p>
+
+                        <!-- Key Highlights Cards -->
+                        <div class="grid sm:grid-cols-2 gap-4 pt-2">
+                            <div class="bg-white p-4 rounded-2xl border border-gray-100 shadow-sm flex items-start gap-3">
+                                <div class="bg-navy-50 p-2.5 rounded-xl text-navy-800"><i class="fa-solid fa-laptop-code text-lg"></i></div>
+                                <div>
+                                    <h4 class="font-bold text-sm text-navy-900" data-i18n="h1_title">Kompyuter Laboratoriyasi</h4>
+                                    <p class="text-xs text-gray-500" data-i18n="h1_desc">Zamonaviy IT va media xonalari</p>
+                                </div>
+                            </div>
+                            <div class="bg-white p-4 rounded-2xl border border-gray-100 shadow-sm flex items-start gap-3">
+                                <div class="bg-navy-50 p-2.5 rounded-xl text-navy-800"><i class="fa-solid fa-futbol text-lg"></i></div>
+                                <div>
+                                    <h4 class="font-bold text-sm text-navy-900" data-i18n="h2_title">Sport va To'garaklar</h4>
+                                    <p class="text-xs text-gray-500" data-i18n="h2_desc">Futbol, shaxmat va gimnastika</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- LEADERSHIP / RAHBARIAT SECTION -->
+        <section id="leadership" class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+                    <span class="text-gold-600 font-bold tracking-widest text-xs uppercase" data-i18n="lead_tag">Ma'muriyat</span>
+                    <h2 class="font-heading font-extrabold text-3xl sm:text-4xl text-navy-800" data-i18n="lead_title">Maktab Rahbariyati va Zukko Murabbiylar</h2>
+                    <p class="text-gray-600 text-sm" data-i18n="lead_subtitle">O'quv jarayonini samarali tashkil etish va ta'lim sifatini nazorat qiluvchi tajribali ma'muriy jamoamiz.</p>
+                </div>
+
+                <!-- Leadership Grid -->
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    
+                    <!-- Director Card -->
+                    <div class="bg-navy-900 text-white rounded-3xl p-6 shadow-xl border border-navy-800 relative overflow-hidden flex flex-col justify-between group">
+                        <div class="absolute top-0 right-0 bg-gold-500 text-navy-900 text-xs font-bold px-4 py-1.5 rounded-bl-2xl uppercase">
+                            Direktor
+                        </div>
+                        <div>
+                            <div class="w-24 h-24 bg-navy-800 rounded-2xl mb-6 border-2 border-gold-500 flex items-center justify-center text-4xl text-gold-500 shadow-inner">
+                                <i class="fa-solid fa-user-tie"></i>
+                            </div>
+                            <h3 class="font-heading font-bold text-xl text-white">Abdullayeva Saltanat Mullamadyarovna</h3>
+                            <p class="text-gold-400 text-xs font-semibold uppercase mt-1 mb-4" data-i18n="role_dir">Maktab Direktori</p>
+                            <p class="text-gray-300 text-sm leading-relaxed" data-i18n="dir_desc">
+                                Ta'lim va tarbiya jarayonining umumiy rahbari. Maktabda zamonaviy pedagogik texnologiyalarni joriy etish tashabbuskori.
+                            </p>
+                        </div>
+                        <div class="pt-6 mt-6 border-t border-navy-800 flex items-center justify-between text-xs text-gray-300">
+                            <span><i class="fa-solid fa-clock mr-1 text-gold-500"></i> Dush-Jum 09:00-12:00</span>
+                            <a href="tel:+998998159390" class="text-gold-400 font-semibold hover:underline">Bog'lanish</a>
+                        </div>
+                    </div>
+
+                    <!-- Vice Director 1 -->
+                    <div class="bg-gray-50 rounded-3xl p-6 shadow-sm border border-gray-200 flex flex-col justify-between hover:shadow-md transition">
+                        <div>
+                            <div class="w-20 h-20 bg-navy-100 rounded-2xl mb-6 flex items-center justify-center text-3xl text-navy-800">
+                                <i class="fa-solid fa-user-gear"></i>
+                            </div>
+                            <h3 class="font-heading font-bold text-lg text-navy-900">Abdukadyrova Ma'mura Erkinovna</h3>
+                            <p class="text-navy-600 text-xs font-semibold uppercase mt-1 mb-3" data-i18n="role_vice1">Direktor o'rinbosari, O'qituvchi</p>
+                            <p class="text-gray-600 text-sm" data-i18n="vice1_desc">
+                                O'quv-tarbiya ishlari bo'yicha mas'ul va tajribali pedagok.
+                            </p>
+                        </div>
+                        <div class="pt-6 mt-6 border-t border-gray-200 text-xs text-gray-500">
+                            <i class="fa-solid fa-graduation-cap text-gold-600 mr-1"></i> O'quv metodikasi bo'yicha mutaxassis
+                        </div>
+                    </div>
+
+                    <!-- Vice Director 2 -->
+                    <div class="bg-gray-50 rounded-3xl p-6 shadow-sm border border-gray-200 flex flex-col justify-between hover:shadow-md transition">
+                        <div>
+                            <div class="w-20 h-20 bg-navy-100 rounded-2xl mb-6 flex items-center justify-center text-3xl text-navy-800">
+                                <i class="fa-solid fa-book-open-reader"></i>
+                            </div>
+                            <h3 class="font-heading font-bold text-lg text-navy-900">Bahriddinov A'zam Asatulloyevich</h3>
+                            <p class="text-navy-600 text-xs font-semibold uppercase mt-1 mb-3" data-i18n="role_vice2">Direktor o'rinbosari, Zavuch, O'qituvchi</p>
+                            <p class="text-gray-600 text-sm" data-i18n="vice2_desc">
+                                O'quv ishlar bo'yicha mudir (Zavuch). Dars jadvallari va akademik intizom mas'uli.
+                            </p>
+                        </div>
+                        <div class="pt-6 mt-6 border-t border-gray-200 text-xs text-gray-500">
+                            <i class="fa-solid fa-award text-gold-600 mr-1"></i> Akademik intizom va monitoring
+                        </div>
+                    </div>
+
+                    <!-- Vice Director 3 -->
+                    <div class="bg-gray-50 rounded-3xl p-6 shadow-sm border border-gray-200 flex flex-col justify-between hover:shadow-md transition">
+                        <div>
+                            <div class="w-20 h-20 bg-navy-100 rounded-2xl mb-6 flex items-center justify-center text-3xl text-navy-800">
+                                <i class="fa-solid fa-chalkboard-user"></i>
+                            </div>
+                            <h3 class="font-heading font-bold text-lg text-navy-900">Isroilov Shahzod Azimjon o'g'li</h3>
+                            <p class="text-navy-600 text-xs font-semibold uppercase mt-1 mb-3" data-i18n="role_vice3">Direktor o'rinbosari, Zavuch, O'qituvchi</p>
+                            <p class="text-gray-600 text-sm" data-i18n="vice3_desc">
+                                O'quv jarayoniga innovatsiyalar va raqamli vositalarni joriy etuvchi zavuch va o'qituvchi.
+                            </p>
+                        </div>
+                        <div class="pt-6 mt-6 border-t border-gray-200 text-xs text-gray-500">
+                            <i class="fa-solid fa-laptop text-gold-600 mr-1"></i> Axborot texnologiyalari va o'quv ishlari
+                        </div>
+                    </div>
+
+                    <!-- Vice Director 4 -->
+                    <div class="bg-gray-50 rounded-3xl p-6 shadow-sm border border-gray-200 flex flex-col justify-between hover:shadow-md transition">
+                        <div>
+                            <div class="w-20 h-20 bg-navy-100 rounded-2xl mb-6 flex items-center justify-center text-3xl text-navy-800">
+                                <i class="fa-solid fa-user-graduate"></i>
+                            </div>
+                            <h3 class="font-heading font-bold text-lg text-navy-900">Hamrayeva Shahnoza Jumadillayevna</h3>
+                            <p class="text-navy-600 text-xs font-semibold uppercase mt-1 mb-3" data-i18n="role_vice4">Direktor o'rinbosari, O'qituvchi</p>
+                            <p class="text-gray-600 text-sm" data-i18n="vice4_desc">
+                                Ma'naviy-ma'rifiy ishlar bo'yicha mas'ul o'rinbosar hamda tajribali ustoz.
+                            </p>
+                        </div>
+                        <div class="pt-6 mt-6 border-t border-gray-200 text-xs text-gray-500">
+                            <i class="fa-solid fa-heart text-gold-600 mr-1"></i> Ma'naviyat va to'garaklar koordinatori
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- QABUL / ADMISSION PORTAL SECTION -->
+        <section id="qabul" class="py-20 bg-navy-900 text-white relative overflow-hidden">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                
+                <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+                    <span class="text-gold-400 font-bold tracking-widest text-xs uppercase" data-i18n="qabul_portal_tag">QABUL PORTALI 2026-2027</span>
+                    <h2 class="font-heading font-extrabold text-3xl sm:text-4xl text-white" data-i18n="qabul_portal_title">7-Maktabga Onlayn Hujjat Topshirish</h2>
+                    <p class="text-gray-300 text-sm" data-i18n="qabul_portal_sub">1-sinfdan 11-sinfgacha bo'lgan o'quvchilarni o'qishga qabul qilish uchun onlayn ariza shaklini to'ldiring.</p>
+                </div>
+
+                <!-- 4-Step Process Bar -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16">
+                    <div class="bg-navy-800/80 p-5 rounded-2xl border border-navy-600 text-center space-y-2">
+                        <div class="w-10 h-10 bg-gold-500 text-navy-900 font-extrabold rounded-full flex items-center justify-center mx-auto text-lg">1</div>
+                        <h4 class="font-bold text-sm text-white" data-i18n="step1_t">Ariza Topshirish</h4>
+                        <p class="text-xs text-gray-400" data-i18n="step1_d">Ma'lumotlarni to'ldiring</p>
+                    </div>
+                    <div class="bg-navy-800/80 p-5 rounded-2xl border border-navy-600 text-center space-y-2">
+                        <div class="w-10 h-10 bg-gold-500 text-navy-900 font-extrabold rounded-full flex items-center justify-center mx-auto text-lg">2</div>
+                        <h4 class="font-bold text-sm text-white" data-i18n="step2_t">Hujjatlarni Tekshirish</h4>
+                        <p class="text-xs text-gray-400" data-i18n="step2_d">Komissiya ko'rib chiqadi</p>
+                    </div>
+                    <div class="bg-navy-800/80 p-5 rounded-2xl border border-navy-600 text-center space-y-2">
+                        <div class="w-10 h-10 bg-gold-500 text-navy-900 font-extrabold rounded-full flex items-center justify-center mx-auto text-lg">3</div>
+                        <h4 class="font-bold text-sm text-white" data-i18n="step3_t">Suhbat / Sinov</h4>
+                        <p class="text-xs text-gray-400" data-i18n="step3_d">Maktabga tashrif buyurish</p>
+                    </div>
+                    <div class="bg-navy-800/80 p-5 rounded-2xl border border-navy-600 text-center space-y-2">
+                        <div class="w-10 h-10 bg-gold-500 text-navy-900 font-extrabold rounded-full flex items-center justify-center mx-auto text-lg">4</div>
+                        <h4 class="font-bold text-sm text-white" data-i18n="step4_t">O'qishga Qabul</h4>
+                        <p class="text-xs text-gray-400" data-i18n="step4_d">Sinfga biriktiriladi</p>
+                    </div>
+                </div>
+
+                <!-- Form & Requirements Grid -->
+                <div class="grid lg:grid-cols-12 gap-12 items-start">
+                    
+                    <!-- Requirements Checklist Card -->
+                    <div class="lg:col-span-5 bg-navy-800 p-8 rounded-3xl border border-navy-700 space-y-6">
+                        <h3 class="font-heading font-bold text-xl text-gold-400 border-b border-navy-700 pb-4 flex items-center gap-2">
+                            <i class="fa-solid fa-folder-open"></i> <span data-i18n="req_title">Kerakli Hujjatlar Ro'yxati</span>
+                        </h3>
+                        <ul class="space-y-4 text-sm text-gray-200">
+                            <li class="flex items-start gap-3">
+                                <i class="fa-solid fa-circle-check text-gold-500 mt-1"></i>
+                                <span data-i18n="req_1">O'quvchining tug'ilganlik haqidagi guvohnomasi nusxasi</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fa-solid fa-circle-check text-gold-500 mt-1"></i>
+                                <span data-i18n="req_2">Ota-onasining fuqarolik pasporti nusxasi</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fa-solid fa-circle-check text-gold-500 mt-1"></i>
+                                <span data-i18n="req_3">3x4 o'lchamdagi 4 dona rasm</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fa-solid fa-circle-check text-gold-500 mt-1"></i>
+                                <span data-i18n="req_4">Tibbiy ma'lumotnoma (086-U shakli va emlash kartasi)</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fa-solid fa-circle-check text-gold-500 mt-1"></i>
+                                <span data-i18n="req_5">Boshqa maktabdan ko'chib o'tganda: Baholar daftarchasi (Tabel)</span>
+                            </li>
+                        </ul>
+
+                        <div class="bg-navy-900/60 p-4 rounded-xl border border-navy-700 text-xs text-gray-300">
+                            <i class="fa-solid fa-headset text-gold-400 mr-1"></i> <span data-i18n="qabul_help">Qabul komissiyasi aloqa telefoni:</span>
+                            <a href="tel:+998998159390" class="block text-gold-400 font-bold text-sm mt-1">+998 99 815 93 90</a>
+                        </div>
+                    </div>
+
+                    <!-- Admission Form -->
+                    <div class="lg:col-span-7 bg-white text-gray-800 p-8 sm:p-10 rounded-3xl shadow-2xl">
+                        <h3 class="font-heading font-extrabold text-2xl text-navy-900 mb-2" data-i18n="form_title">Qabulga Ariza Topshirish</h3>
+                        <p class="text-xs text-gray-500 mb-6" data-i18n="form_sub">Maydonlarni to'ldiring va «Arizani Yuborish» tugmasini bosing.</p>
+
+                        <form id="qabulForm" onsubmit="handleQabulSubmit(event)" class="space-y-4">
+                            <div class="grid sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-bold text-navy-800 uppercase mb-1" data-i18n="lbl_student_name">O'quvchi Ismi va Familiyasi *</label>
+                                    <input type="text" required placeholder="Masalan: Sardor Rahimov" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-gold-500 text-sm">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold text-navy-800 uppercase mb-1" data-i18n="lbl_birth">Tug'ilgan sanasi *</label>
+                                    <input type="date" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-gold-500 text-sm">
+                                </div>
+                            </div>
+
+                            <div class="grid sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-bold text-navy-800 uppercase mb-1" data-i18n="lbl_grade">Qaysi Sinfga? *</label>
+                                    <select required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-gold-500 text-sm">
+                                        <option value="">Sinfni tanlang</option>
+                                        <option value="1">1-sinf (Boshlang'ich)</option>
+                                        <option value="2">2-4 sinflar</option>
+                                        <option value="5">5-9 sinflar</option>
+                                        <option value="10">10-11 sinflar</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold text-navy-800 uppercase mb-1" data-i18n="lbl_lang">Ta'lim Tili *</label>
+                                    <select required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-gold-500 text-sm">
+                                        <option value="uz">O'zbek tili</option>
+                                        <option value="ru">Rus tili (Русский класс)</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="grid sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-bold text-navy-800 uppercase mb-1" data-i18n="lbl_parent_name">Ota-onasining F.I.SH *</label>
+                                    <input type="text" required placeholder="Masalan: Rahimov Otabek" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-gold-500 text-sm">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold text-navy-800 uppercase mb-1" data-i18n="lbl_phone">Telefon Raqami *</label>
+                                    <input type="tel" required placeholder="+998 90 123 45 67" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-gold-500 text-sm">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-bold text-navy-800 uppercase mb-1" data-i18n="lbl_address">Yashash Manzili (Yangibozor/Qishloq)</label>
+                                <input type="text" placeholder="Masalan: Yangibozor sh., Guliston k. 12-uy" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-gold-500 text-sm">
+                            </div>
+
+                            <button type="submit" class="w-full bg-gold-500 hover:bg-gold-600 text-navy-900 font-extrabold py-4 rounded-xl shadow-lg transition text-base uppercase tracking-wider flex items-center justify-center gap-2">
+                                <i class="fa-solid fa-paper-plane"></i> <span data-i18n="btn_submit_qabul">Arizani Yuborish</span>
+                            </button>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- EVENTS & SCHOOL LIFE GALLERY -->
+        <section id="events" class="py-20 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+                    <span class="text-gold-600 font-bold tracking-widest text-xs uppercase" data-i18n="life_tag">Maktab Hayoti</span>
+                    <h2 class="font-heading font-extrabold text-3xl sm:text-4xl text-navy-800" data-i18n="life_title">Tadbir va Ma'rifiy Uchrashuvlar</h2>
+                    <p class="text-gray-600 text-sm" data-i18n="life_sub">7-sonli maktabimizda o'tkazilayotgan so'nggi ma'naviy-ma'rifiy, sport va o'quv tadbirlari.</p>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Event Card 1 -->
+                    <article class="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition border border-gray-100 flex flex-col">
+                        <div class="h-52 overflow-hidden relative">
+                            <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=600&q=80" alt="Sport tadbiri" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+                            <span class="absolute top-4 left-4 bg-navy-800 text-gold-400 text-xs font-bold px-3 py-1 rounded-lg">FIFA Football</span>
+                        </div>
+                        <div class="p-6 flex-grow flex flex-col justify-between">
+                            <div>
+                                <h3 class="font-heading font-bold text-lg text-navy-900 mb-2" data-i18n="e1_title">FIFA Women's Football Musobaqasi</h3>
+                                <p class="text-gray-600 text-sm line-clamp-3" data-i18n="e1_desc">Maktabimiz o'quvchi qizlari o'rtasida #livingfootball shiori ostida sport musobaqalari ko'tarinki ruhda o'tkazildi.</p>
+                            </div>
+                            <button onclick="openNews('FIFA Women\'s Football Musobaqasi', 'Maktabimiz o\'quvchi qizlari o\'rtasida #livingfootball shiori ostida sport musobaqalari o\'tkazildi. O\'quvchilar faol ishtirok etib, diplom va esdalik sovg\'alari bilan taqdirlandilar.')" class="mt-4 text-gold-600 font-semibold text-sm hover:underline self-start" data-i18n="btn_read">Batafsil →</button>
+                        </div>
+                    </article>
+
+                    <!-- Event Card 2 -->
+                    <article class="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition border border-gray-100 flex flex-col">
+                        <div class="h-52 overflow-hidden relative">
+                            <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=600&q=80" alt="Milliy liboslar" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+                            <span class="absolute top-4 left-4 bg-navy-800 text-gold-400 text-xs font-bold px-3 py-1 rounded-lg">Madaniyat</span>
+                        </div>
+                        <div class="p-6 flex-grow flex flex-col justify-between">
+                            <div>
+                                <h3 class="font-heading font-bold text-lg text-navy-900 mb-2" data-i18n="e2_title">Milliy Qadriyatlar va Xonatlas Festivali</h3>
+                                <p class="text-gray-600 text-sm line-clamp-3" data-i18n="e2_desc">Maktabimizda milliy o'zlikni anglash va milliy liboslar targ'ibotiga bag'ishlangan bayramona tadbir bo'lib o'tdi.</p>
+                            </div>
+                            <button onclick="openNews('Milliy Qadriyatlar Festivali', 'Maktabimizda o\'qituvchi va o\'quvchilar ishtirokida milliy urf-odatlarimiz va taomlarimiz ko\'rgazmasi tashkil etildi.')" class="mt-4 text-gold-600 font-semibold text-sm hover:underline self-start" data-i18n="btn_read">Batafsil →</button>
+                        </div>
+                    </article>
+
+                    <!-- Event Card 3 -->
+                    <article class="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition border border-gray-100 flex flex-col">
+                        <div class="h-52 overflow-hidden relative">
+                            <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=600&q=80" alt="Ochiq dars" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+                            <span class="absolute top-4 left-4 bg-navy-800 text-gold-400 text-xs font-bold px-3 py-1 rounded-lg">Ochiq Dars</span>
+                        </div>
+                        <div class="p-6 flex-grow flex flex-col justify-between">
+                            <div>
+                                <h3 class="font-heading font-bold text-lg text-navy-900 mb-2" data-i18n="e3_title">Mahorat Darslari va Ochiq Muloqot</h3>
+                                <p class="text-gray-600 text-sm line-clamp-3" data-i18n="e3_desc">Tuman metodistlari hamda maktabimiz tajribali zamonaviy pedogoglari ishtirokida mahorat darslari o'tkazildi.</p>
+                            </div>
+                            <button onclick="openNews('Mahorat Darslari', 'Interaktiv doskalar va axborot texnologiyalaridan foydalangan holda ilg\'or pedagogik metodikalar namoyish etildi.')" class="mt-4 text-gold-600 font-semibold text-sm hover:underline self-start" data-i18n="btn_read">Batafsil →</button>
+                        </div>
+                    </article>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- CONTACT & LOCATION SECTION -->
+        <section id="contact" class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid lg:grid-cols-12 gap-12">
+                    
+                    <div class="lg:col-span-5 space-y-8">
+                        <div>
+                            <span class="text-gold-600 font-bold tracking-widest text-xs uppercase" data-i18n="c_tag">Aloqa va Manzil</span>
+                            <h2 class="font-heading font-extrabold text-3xl text-navy-800 mt-2" data-i18n="c_title">Maktabimiz Bilan Bog'laning</h2>
+                            <p class="text-gray-600 text-sm mt-3" data-i18n="c_sub">Savollaringiz bo'lsa telefon qiling yoki manzilimizga tashrif buyuring.</p>
+                        </div>
+
+                        <div class="space-y-6">
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 bg-navy-50 text-navy-800 rounded-2xl flex items-center justify-center text-xl flex-shrink-0">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-navy-900" data-i18n="c_address_lbl">Manzil:</h4>
+                                    <p class="text-gray-600 text-sm" data-i18n="c_address_val">Toshkent viloyati, Yuqorichirchiq tumani, Yangibozor posyolkasi</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 bg-navy-50 text-navy-800 rounded-2xl flex items-center justify-center text-xl flex-shrink-0">
+                                    <i class="fa-solid fa-phone"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-navy-900" data-i18n="c_phone_lbl">Telefon raqami:</h4>
+                                    <a href="tel:+998998159390" class="text-gold-600 font-bold text-base hover:underline">+998 99 815 93 90</a>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 bg-navy-50 text-navy-800 rounded-2xl flex items-center justify-center text-xl flex-shrink-0">
+                                    <i class="fa-solid fa-clock"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-navy-900" data-i18n="c_hours_lbl">Ish vaqti:</h4>
+                                    <p class="text-gray-600 text-sm" data-i18n="c_hours_val">Dushanba – Juma (08:00 – 17:00)</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="p-6 bg-navy-900 text-white rounded-3xl space-y-3">
+                            <h4 class="font-bold text-gold-400" data-i18n="direct_call_title">Shaxsiy Savollar Bilan?</h4>
+                            <p class="text-xs text-gray-300" data-i18n="direct_call_desc">Maktab ma'muriyati va qabul bo'limiga to'g'ridan-to'g'ri qo'ng'iroq qiling.</p>
+                            <a href="tel:+998998159390" class="inline-flex items-center gap-2 bg-gold-500 text-navy-900 font-bold px-4 py-2.5 rounded-xl text-xs hover:bg-gold-600 transition">
+                                <i class="fa-solid fa-phone-flip"></i> +998 99 815 93 90
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Contact Form & Interactive Map Embed -->
+                    <div class="lg:col-span-7 bg-gray-50 p-8 rounded-3xl border border-gray-100 flex flex-col justify-between space-y-6">
+                        <div>
+                            <h3 class="font-heading font-bold text-xl text-navy-900 mb-4" data-i18n="msg_title">Xabar Yuborish</h3>
+                            <form onsubmit="handleContactSubmit(event)" class="space-y-4">
+                                <div>
+                                    <input type="text" required placeholder="Ismingiz" class="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-navy-600">
+                                </div>
+                                <div>
+                                    <input type="tel" required placeholder="Telefon raqamingiz" class="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-navy-600">
+                                </div>
+                                <div>
+                                    <textarea rows="3" required placeholder="Savol yoki xabaringiz..." class="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-navy-600"></textarea>
+                                </div>
+                                <button type="submit" class="bg-navy-800 hover:bg-navy-900 text-white font-bold px-6 py-3 rounded-xl transition text-sm flex items-center gap-2">
+                                    <i class="fa-solid fa-paper-plane text-gold-500"></i> <span data-i18n="btn_send_msg">Xabarni Yuborish</span>
+                                </button>
+                            </form>
+                        </div>
+
+                        <!-- Map Frame -->
+                        <div class="h-56 rounded-2xl overflow-hidden border border-gray-200 shadow-inner">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2995.823908298711!2d69.5312!3d41.3321!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDHCsDE5JzU1LjYiTiA2OcKwMzEnNTIuMyJF!5e0!3m2!1sen!2suz!4v1680000000000!5m2!1sen!2suz" 
+                                    class="w-full h-full border-0" allowfullscreen="" loading="lazy"></iframe>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-navy-900 text-gray-300 py-12 border-t border-navy-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-4 gap-8">
+            <div class="space-y-4">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-gold-500 text-navy-900 rounded-lg flex items-center justify-center font-bold text-xl">7</div>
+                    <span class="font-heading font-extrabold text-white text-lg">7-SONLI MAKTAB</span>
+                </div>
+                <p class="text-xs text-gray-400 leading-relaxed" data-i18n="f_desc">
+                    Toshkent viloyati, Yuqorichirchiq tumani, Yangibozor posyolkasi 7-sonli umumiy o'rta ta'lim maktabi rasmiy portali.
+                </p>
+            </div>
+
+            <div>
+                <h4 class="font-bold text-white text-sm uppercase tracking-wider mb-4" data-i18n="f_menu">Bo'limlar</h4>
+                <ul class="space-y-2 text-xs">
+                    <li><a href="#home" class="hover:text-gold-400 transition" data-i18n="nav_home">Bosh sahifa</a></li>
+                    <li><a href="#about" class="hover:text-gold-400 transition" data-i18n="nav_about">Maktab haqida</a></li>
+                    <li><a href="#leadership" class="hover:text-gold-400 transition" data-i18n="nav_leadership">Rahbariat</a></li>
+                    <li><a href="#qabul" class="hover:text-gold-400 transition" data-i18n="nav_qabul">Qabul Portal</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="font-bold text-white text-sm uppercase tracking-wider mb-4" data-i18n="f_contact">Bog'lanish</h4>
+                <p class="text-xs text-gray-400 leading-relaxed">
+                    Yangibozor, Yuqorichirchiq t.<br>
+                    Tel: <a href="tel:+998998159390" class="text-gold-400 font-bold hover:underline">+998 99 815 93 90</a><br>
+                    Dush-Jum: 08:00 – 17:00
+                </p>
+            </div>
+
+            <div>
+                <h4 class="font-bold text-white text-sm uppercase tracking-wider mb-4" data-i18n="f_social">Ijtimoiy Tarmoqlar</h4>
+                <div class="flex gap-3">
+                    <a href="#" class="w-9 h-9 bg-navy-800 rounded-full flex items-center justify-center hover:bg-gold-500 hover:text-navy-900 transition"><i class="fa-brands fa-telegram"></i></a>
+                    <a href="#" class="w-9 h-9 bg-navy-800 rounded-full flex items-center justify-center hover:bg-gold-500 hover:text-navy-900 transition"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#" class="w-9 h-9 bg-navy-800 rounded-full flex items-center justify-center hover:bg-gold-500 hover:text-navy-900 transition"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 text-center text-xs text-gray-500 mt-12 pt-6 border-t border-navy-800">
+            © 2026 Yuqori Chirchiq tumani 7-sonli maktab. Barcha huquqlar himoyalangan.
+        </div>
+    </footer>
+
+    <!-- News Info Modal -->
+    <div id="newsModal" class="fixed inset-0 bg-black/60 hidden backdrop-blur-sm z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-lg w-full p-6 space-y-4 shadow-2xl relative">
+            <button onclick="closeNews()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 text-xl">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <h3 id="nTitle" class="font-heading font-bold text-xl text-navy-900"></h3>
+            <p id="nBody" class="text-gray-600 text-sm leading-relaxed"></p>
+            <button onclick="closeNews()" class="w-full bg-navy-800 text-white font-medium py-2.5 rounded-xl">Yopish</button>
+        </div>
+    </div>
+
+    <!-- JS Translation Engine & Interactive Handlers -->
+    <script>
+        const translations = {
+            uz: {
+                top_hours: "Dush–Jum: 08:00 – 17:00",
+                top_location: "Toshkent vil., Yuqorichirchiq t., Yangibozor sh.",
+                btn_qabul_top: "Qabul 2026-2027",
+                school_subhead: "Yuqori Chirchiq Tumani Yangibozor",
+                nav_home: "Bosh sahifa",
+                nav_about: "Maktab haqida",
+                nav_leadership: "Rahbariat",
+                nav_qabul: "Qabul Portal",
+                nav_events: "Maktab Hayoti",
+                nav_contact: "Bog'lanish",
+                hero_badge: "Sifatli Ta'lim & Tarbiya Maskani",
+                hero_title: "7-Sonli Umumiy O'rta Ta'lim Maktabi",
+                hero_desc: "Yuqori Chirchiq tumani, Yangibozor posyolkasida joylashgan bilim maskani. O'quvchilarning har tomonlama kamol topishi uchun barcha sharoitlar yaratilgan.",
+                hero_btn_apply: "Onlayn Qabulga Ariza Topshirish",
+                hero_btn_more: "Maktab Haqida Batafsil",
+                badge_title: "Ish Tartibi",
+                badge_sub: "Dushanba - Juma",
+                time_hours: "Dars vaqtlari:",
+                time_days: "Ish kunlari:",
+                time_workdays: "Dush – Jum",
+                time_phone: "Aloqa:",
+                badge_info: "Yangibozor markazida joylashgan zamonaviy ta'lim muassasasi.",
+                stat_1: "O'quvchilar Soni",
+                stat_2: "Malakali O'qituvchilar",
+                stat_3: "Zamonaviy Sinfxonalar",
+                stat_4: "% Sifatli Ta'lim",
+                about_tag: "Bizning Maktab",
+                about_title: "Kelajak Bunyodkorlarini Tayyorlaydigan Ziyo Maskani",
+                about_desc1: "Yuqori Chirchiq tumani 7-sonli umumiy o'rta ta'lim maktabi ko'p yillik tajribaga ega bo'lib, o'quvchilarga chuqurlashtirilgan bilim berishni asosiy vazifa deb biladi.",
+                about_desc2: "Maktabimizda zamonaviy kompyuter xonalari, boy kutubxona, sport zali hamda FIFA Women's Football dasturi kabi turli to'garaklar mavjud.",
+                h1_title: "Kompyuter Laboratoriyasi",
+                h1_desc: "Zamonaviy IT va media xonalari",
+                h2_title: "Sport va To'garaklar",
+                h2_desc: "Futbol, shaxmat va gimnastika",
+                lead_tag: "Ma'muriyat",
+                lead_title: "Maktab Rahbariyati va Zukko Murabbiylar",
+                lead_subtitle: "O'quv jarayonini samarali tashkil etish va ta'lim sifatini nazorat qiluvchi tajribali ma'muriy jamoamiz.",
+                role_dir: "Maktab Direktori",
+                dir_desc: "Ta'lim va tarbiya jarayonining umumiy rahbari. Maktabda zamonaviy pedagogik texnologiyalarni joriy etish tashabbuskori.",
+                role_vice1: "Direktor o'rinbosari, O'qituvchi",
+                vice1_desc: "O'quv-tarbiya ishlari bo'yicha mas'ul va tajribali pedagok.",
+                role_vice2: "Direktor o'rinbosari, Zavuch, O'qituvchi",
+                vice2_desc: "O'quv ishlar bo'yicha mudir (Zavuch). Dars jadvallari va akademik intizom mas'uli.",
+                role_vice3: "Direktor o'rinbosari, Zavuch, O'qituvchi",
+                vice3_desc: "O'quv jarayoniga innovatsiyalar va raqamli vositalarni joriy etuvchi zavuch va o'qituvchi.",
+                role_vice4: "Direktor o'rinbosari, O'qituvchi",
+                vice4_desc: "Ma'naviy-ma'rifiy ishlar bo'yicha mas'ul o'rinbosar hamda tajribali ustoz.",
+                qabul_portal_tag: "QABUL PORTALI 2026-2027",
+                qabul_portal_title: "7-Maktabga Onlayn Hujjat Topshirish",
+                qabul_portal_sub: "1-sinfdan 11-sinfgacha bo'lgan o'quvchilarni o'qishga qabul qilish uchun onlayn ariza shaklini to'ldiring.",
+                step1_t: "Ariza Topshirish",
+                step1_d: "Ma'lumotlarni to'ldiring",
+                step2_t: "Hujjatlarni Tekshirish",
+                step2_d: "Komissiya ko'rib chiqadi",
+                step3_t: "Suhbat / Sinov",
+                step3_d: "Maktabga tashrif buyurish",
+                step4_t: "O'qishga Qabul",
+                step4_d: "Sinfga biriktiriladi",
+                req_title: "Kerakli Hujjatlar Ro'yxati",
+                req_1: "O'quvchining tug'ilganlik haqidagi guvohnomasi nusxasi",
+                req_2: "Ota-onasining fuqarolik pasporti nusxasi",
+                req_3: "3x4 o'lchamdagi 4 dona rasm",
+                req_4: "Tibbiy ma'lumotnoma (086-U shakli va emlash kartasi)",
+                req_5: "Boshqa maktabdan ko'chib o'tganda: Baholar daftarchasi (Tabel)",
+                qabul_help: "Qabul komissiyasi aloqa telefoni:",
+                form_title: "Qabulga Ariza Topshirish",
+                form_sub: "Maydonlarni to'ldiring va «Arizani Yuborish» tugmasini bosing.",
+                lbl_student_name: "O'quvchi Ismi va Familiyasi *",
+                lbl_birth: "Tug'ilgan sanasi *",
+                lbl_grade: "Qaysi Sinfga? *",
+                lbl_lang: "Ta'lim Tili *",
+                lbl_parent_name: "Ota-onasining F.I.SH *",
+                lbl_phone: "Telefon Raqami *",
+                lbl_address: "Yashash Manzili (Yangibozor/Qishloq)",
+                btn_submit_qabul: "Arizani Yuborish",
+                life_tag: "Maktab Hayoti",
+                life_title: "Tadbir va Ma'rifiy Uchrashuvlar",
+                life_sub: "7-sonli maktabimizda o'tkazilayotgan so'nggi ma'naviy-ma'rifiy va sport tadbirlari.",
+                e1_title: "FIFA Women's Football Musobaqasi",
+                e1_desc: "Maktabimiz o'quvchi qizlari o'rtasida #livingfootball shiori ostida sport musobaqalari ko'tarinki ruhda o'tkazildi.",
+                e2_title: "Milliy Qadriyatlar Festivali",
+                e2_desc: "Maktabimizda milliy o'zlikni anglash va milliy liboslar targ'ibotiga bag'ishlangan bayramona tadbir bo'lib o'tdi.",
+                e3_title: "Mahorat Darslari va Ochiq Muloqot",
+                e3_desc: "Tuman metodistlari hamda maktabimiz tajribali zamonaviy pedogoglari ishtirokida mahorat darslari o'tkazildi.",
+                btn_read: "Batafsil →",
+                c_tag: "Aloqa va Manzil",
+                c_title: "Maktabimiz Bilan Bog'laning",
+                c_sub: "Savollaringiz bo'lsa telefon qiling yoki manzilimizga tashrif buyuring.",
+                c_address_lbl: "Manzil:",
+                c_address_val: "Toshkent viloyati, Yuqorichirchiq tumani, Yangibozor posyolkasi",
+                c_phone_lbl: "Telefon raqami:",
+                c_hours_lbl: "Ish vaqti:",
+                c_hours_val: "Dushanba – Juma (08:00 – 17:00)",
+                direct_call_title: "Shaxsiy Savollar Bilan?",
+                direct_call_desc: "Maktab ma'muriyati va qabul bo'limiga to'g'ridan-to'g'ri qo'ng'iroq qiling.",
+                msg_title: "Xabar Yuborish",
+                btn_send_msg: "Xabarni Yuborish",
+                f_desc: "Toshkent viloyati, Yuqorichirchiq tumani, Yangibozor posyolkasi 7-sonli maktab rasmiy portali.",
+                f_menu: "Bo'limlar",
+                f_contact: "Bog'lanish",
+                f_social: "Ijtimoiy Tarmoqlar"
+            },
+            ru: {
+                top_hours: "Пн–Пт: 08:00 – 17:00",
+                top_location: "Ташкентская обл., Юкаричирчикский р-н, п. Янгибазар",
+                btn_qabul_top: "Прием 2026-2027",
+                school_subhead: "Юкаричирчикский район, п. Янгибазар",
+                nav_home: "Главная",
+                nav_about: "О школе",
+                nav_leadership: "Руководство",
+                nav_qabul: "Портал Приема",
+                nav_events: "Жизнь школы",
+                nav_contact: "Контакты",
+                hero_badge: "Качественное Образование и Воспитание",
+                hero_title: "Общеобразовательная Школа №7",
+                hero_desc: "Учебное заведение в посёлке Янгибазар Юкаричирчикского района. Созданы все условия для всестороннего развития учащихся.",
+                hero_btn_apply: "Подать Онлайн-Заявку на Прием",
+                hero_btn_more: "Подробнее о школе",
+                badge_title: "График работы",
+                badge_sub: "Понедельник - Пятница",
+                time_hours: "Учебные часы:",
+                time_days: "Рабочие дни:",
+                time_workdays: "Пн – Пт",
+                time_phone: "Телефон:",
+                badge_info: "Современное учебное заведение в центре Янгибазара.",
+                stat_1: "Количество Учеников",
+                stat_2: "Опытных Учителей",
+                stat_3: "Современных Кабинетов",
+                stat_4: "% Качество Обучения",
+                about_tag: "Наша Школа",
+                about_title: "Обитель Знаний для Будущих Лидеров",
+                about_desc1: "Школа №7 Юкаричирчикского района имеет многолетний опыт и ставит своей главной целью качественное образование подрастающего поколения.",
+                about_desc2: "В школе функционируют компьютерные классы, библиотека, спортивные секции и участвуют в программе FIFA Women's Football.",
+                h1_title: "Компьютерная Лаборатория",
+                h1_desc: "Современные IT и медиа кабинеты",
+                h2_title: "Спорт и Кружки",
+                h2_desc: "Футбол, шахматы и гимнастика",
+                lead_tag: "Администрация",
+                lead_title: "Руководство Школы и Преподаватели",
+                lead_subtitle: "Опытная команда администрации, обеспечивающая высокий уровень образования.",
+                role_dir: "Директор Школы",
+                dir_desc: "Руководитель учебного и воспитательного процесса. Инициатор внедрения современных технологий.",
+                role_vice1: "Зам. директора, Учитель",
+                vice1_desc: "Ответственный за учебно-воспитательную работу, опытный педагог.",
+                role_vice2: "Зам. директора, Завуч, Учитель",
+                vice2_desc: "Заведующий учебной частью (Завуч). Контроль расписания и академической дисциплины.",
+                role_vice3: "Зам. директора, Завуч, Учитель",
+                vice3_desc: "Завуч и учитель, внедряющий цифровые образовательные ресурсы в учебный процесс.",
+                role_vice4: "Зам. директора, Учитель",
+                vice4_desc: "Заместитель директора по духовно-просветительской работе.",
+                qabul_portal_tag: "ПОРТАЛ ПРИЕМА 2026-2027",
+                qabul_portal_title: "Онлайн Прием в Школу №7",
+                qabul_portal_sub: "Заполните форму для зачисления учащихся с 1 по 11 классы.",
+                step1_t: "Подача Заявки",
+                step1_d: "Заполнение данных",
+                step2_t: "Проверка Документов",
+                step2_d: "Проверка комиссией",
+                step3_t: "Собеседование",
+                step3_d: "Визит в школу",
+                step4_t: "Зачисление",
+                step4_d: "Прикрепление к классу",
+                req_title: "Перечень Документов",
+                req_1: "Копия свидетельства о рождении ученика",
+                req_2: "Копия паспорта родителей",
+                req_3: "4 фотографии размером 3х4",
+                req_4: "Медицинская справка (форма 086-У и карта прививок)",
+                req_5: "При переводе из другой школы: Табель успеваемости",
+                qabul_help: "Телефон приемной комиссии:",
+                form_title: "Подать Заявку на Прием",
+                form_sub: "Заполните поля и нажмите кнопку «Отправить Заявку».",
+                lbl_student_name: "Имя и Фамилия Ученика *",
+                lbl_birth: "Дата рождения *",
+                lbl_grade: "В какой класс? *",
+                lbl_lang: "Язык обучения *",
+                lbl_parent_name: "Ф.И.О. Родителя *",
+                lbl_phone: "Номер телефона *",
+                lbl_address: "Адрес проживания (Янгибазар)",
+                btn_submit_qabul: "Отправить Заявку",
+                life_tag: "Жизнь Школы",
+                life_title: "Мероприятия и Встречи",
+                life_sub: "Свежие культурные и спортивные события школы №7.",
+                e1_title: "Турнир FIFA Women's Football",
+                e1_desc: "Среди учениц нашей школы под девизом #livingfootball прошел спортивный турнир.",
+                e2_title: "Фестиваль Национальных Ценностей",
+                e2_desc: "Праздничное мероприятие, посвященное национальным традициям и костюмам.",
+                e3_title: "Мастер-классы и Открытые Уроки",
+                e3_desc: "Открытые уроки с использованием интерактивных технологий.",
+                btn_read: "Подробнее →",
+                c_tag: "Контакты и Адрес",
+                c_title: "Свяжитесь с Нами",
+                c_sub: "Позвоните нам или посетите нашу школу в п. Янгибазар.",
+                c_address_lbl: "Адрес:",
+                c_address_val: "Ташкентская область, Юкаричирчикский район, посёлок Янгибазар",
+                c_phone_lbl: "Номер телефона:",
+                c_hours_lbl: "Время работы:",
+                c_hours_val: "Понедельник – Пятница (08:00 – 17:00)",
+                direct_call_title: "Есть личные вопросы?",
+                direct_call_desc: "Звоните напрямую в приемную директора или завучам.",
+                msg_title: "Отправить Сообщение",
+                btn_send_msg: "Отправить",
+                f_desc: "Официальный портал школы №7 посёлка Янгибазар Юкаричирчикского района.",
+                f_menu: "Разделы",
+                f_contact: "Контакты",
+                f_social: "Социальные сети"
+            },
+            en: {
+                top_hours: "Mon–Fri: 08:00 – 17:00",
+                top_location: "Tashkent Region, Yuqorichirchiq, Yangibazar",
+                btn_qabul_top: "Admissions 2026",
+                school_subhead: "Yuqorichirchiq District, Yangibazar",
+                nav_home: "Home",
+                nav_about: "About School",
+                nav_leadership: "Leadership",
+                nav_qabul: "Admissions Portal",
+                nav_events: "School Life",
+                nav_contact: "Contact",
+                hero_badge: "Quality Education & Discipline",
+                hero_title: "Public Secondary School No. 7",
+                hero_desc: "Premier educational institution in Yangibazar village, Yuqorichirchiq district. Fully equipped for student excellence.",
+                hero_btn_apply: "Apply Online for Admissions",
+                hero_btn_more: "Learn More About School",
+                badge_title: "Opening Hours",
+                badge_sub: "Monday - Friday",
+                time_hours: "Class Hours:",
+                time_days: "Workdays:",
+                time_workdays: "Mon – Fri",
+                time_phone: "Phone:",
+                badge_info: "Modern public school located in central Yangibazar.",
+                stat_1: "Enrolled Students",
+                stat_2: "Expert Teachers",
+                stat_3: "Modern Classrooms",
+                stat_4: "% Educational Quality",
+                about_tag: "Our School",
+                about_title: "Nurturing Future Leaders with Excellence",
+                about_desc1: "School No. 7 in Yuqorichirchiq district provides well-rounded academic and character education.",
+                about_desc2: "Featuring modern computer labs, sports grounds, and FIFA Women's Football campaign activities.",
+                h1_title: "Computer Lab",
+                h1_desc: "Modern IT & media room",
+                h2_title: "Sports & Clubs",
+                h2_desc: "Football, chess & gymnastics",
+                lead_tag: "Administration",
+                lead_title: "School Leadership & Directors",
+                lead_subtitle: "Dedicated management team leading academic standards.",
+                role_dir: "School Director",
+                dir_desc: "Head of school administration driving modern teaching methodologies.",
+                role_vice1: "Vice Director, Teacher",
+                vice1_desc: "Responsible for curriculum standards and academic monitoring.",
+                role_vice2: "Vice Director, Academic Head, Teacher",
+                vice2_desc: "Manages class schedules, curriculum, and academic discipline.",
+                role_vice3: "Vice Director, Academic Head, Teacher",
+                vice3_desc: "Oversees digital learning tools and academic innovations.",
+                role_vice4: "Vice Director, Teacher",
+                vice4_desc: "Head of spiritual and cultural student development.",
+                qabul_portal_tag: "ADMISSIONS PORTAL 2026",
+                qabul_portal_title: "Online Admissions Application",
+                qabul_portal_sub: "Apply online for grades 1 through 11 enrollment.",
+                step1_t: "Submit Application",
+                step1_d: "Fill online form",
+                step2_t: "Document Review",
+                step2_d: "Verification phase",
+                step3_t: "Interview",
+                step3_d: "School visit",
+                step4_t: "Enrollment",
+                step4_d: "Class assignment",
+                req_title: "Required Documents",
+                req_1: "Copy of Student's Birth Certificate",
+                req_2: "Copy of Parent's Passport",
+                req_3: "4 photos (3x4 size)",
+                req_4: "Medical Form (086-U) & Vaccination Record",
+                req_5: "Transfer Students: Previous Academic Records",
+                qabul_help: "Admissions Office Direct Phone:",
+                form_title: "Admissions Application Form",
+                form_sub: "Complete the fields below and submit your request.",
+                lbl_student_name: "Student Full Name *",
+                lbl_birth: "Date of Birth *",
+                lbl_grade: "Applying for Grade *",
+                lbl_lang: "Instruction Language *",
+                lbl_parent_name: "Parent Full Name *",
+                lbl_phone: "Phone Number *",
+                lbl_address: "Address (Yangibazar)",
+                btn_submit_qabul: "Submit Application",
+                life_tag: "School Life",
+                life_title: "Events & Cultural Activities",
+                life_sub: "Latest updates and cultural celebrations at School No. 7.",
+                e1_title: "FIFA Women's Football Festival",
+                e1_desc: "Football tournaments held for school girls under #livingfootball banner.",
+                e2_title: "National Heritage Day",
+                e2_desc: "Celebration of national values and traditional Uzbek costumes.",
+                e3_title: "Open Classes & Teacher Workshops",
+                e3_desc: "Interactive teaching technique demonstrations.",
+                btn_read: "Read More →",
+                c_tag: "Contact & Location",
+                c_title: "Get in Touch With Us",
+                c_sub: "Call us or visit our school campus in Yangibazar.",
+                c_address_lbl: "Address:",
+                c_address_val: "Tashkent Region, Yuqorichirchiq District, Yangibazar Village",
+                c_phone_lbl: "Phone Number:",
+                c_hours_lbl: "Working Hours:",
+                c_hours_val: "Monday – Friday (08:00 – 17:00)",
+                direct_call_title: "Have Specific Inquiries?",
+                direct_call_desc: "Call school administration or vice directors directly.",
+                msg_title: "Send Message",
+                btn_send_msg: "Send Message",
+                f_desc: "Official website of School No. 7 in Yangibazar, Yuqorichirchiq district.",
+                f_menu: "Quick Links",
+                f_contact: "Contact",
+                f_social: "Social Media"
+            }
+        };
+
+        let activeLang = 'uz';
+
+        function setLang(lang) {
+            activeLang = lang;
+            ['uz', 'ru', 'en'].forEach(l => {
+                const btn = document.getElementById(`lang-${l}`);
+                if (l === lang) {
+                    btn.className = "px-2 py-0.5 rounded font-bold text-white bg-gold-500";
+                } else {
+                    btn.className = "px-2 py-0.5 rounded font-medium text-gray-300 hover:text-white";
+                }
+            });
+
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang] && translations[lang][key]) {
+                    el.textContent = translations[lang][key];
+                }
+            });
+        }
+
+        // Mobile Menu Script
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        document.querySelectorAll('.mobile-link').forEach(l => {
+            l.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+        });
+
+        // Statistics Count Animation
+        let countDone = false;
+        window.addEventListener('scroll', () => {
+            const counters = document.querySelectorAll('.counter');
+            const pos = document.querySelector('.counter')?.offsetTop || 0;
+            if (window.scrollY + window.innerHeight > pos && !countDone) {
+                countDone = true;
+                counters.forEach(c => {
+                    const target = +c.getAttribute('data-target');
+                    let current = 0;
+                    const step = Math.ceil(target / 40);
+                    const run = () => {
+                        current += step;
+                        if (current < target) {
+                            c.innerText = current;
+                            setTimeout(run, 30);
+                        } else {
+                            c.innerText = target;
+                        }
+                    };
+                    run();
+                });
+            }
+        });
+
+        // News Modal Handlers
+        function openNews(title, text) {
+            document.getElementById('nTitle').innerText = title;
+            document.getElementById('nBody').innerText = text;
+            document.getElementById('newsModal').classList.remove('hidden');
+        }
+
+        function closeNews() {
+            document.getElementById('newsModal').classList.add('hidden');
+        }
+
+        // Form Handlers
+        function handleQabulSubmit(e) {
+            e.preventDefault();
+            const code = 'QABUL-' + Math.floor(100000 + Math.random() * 900000);
+            const msg = activeLang === 'ru' 
+                ? `Заявка принята! Ваш регистрационный код: ${code}. Мы свяжемся с вами!`
+                : activeLang === 'en'
+                ? `Application Submitted! Track Code: ${code}. We will contact you soon!`
+                : `Arizangiz muvaffaqiyatli qabul qilindi! Qabul kodingiz: ${code}. Tezgada siz bilan bog'lanamiz!`;
+            alert(msg);
+            e.target.reset();
+        }
+
+        function handleContactSubmit(e) {
+            e.preventDefault();
+            const msg = activeLang === 'ru' ? 'Сообщение отправлено!' : activeLang === 'en' ? 'Message sent successfully!' : 'Xabar muvaffaqiyatli yuborildi!';
+            alert(msg);
+            e.target.reset();
+        }
+    </script>
+</body>
+</html>
